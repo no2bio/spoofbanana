@@ -3,6 +3,7 @@
 import os, sys, cgi, json, pystache, cherrypy
 
 from appdir import APPDIR
+os.chdir(APPDIR)  # For some reason, it matters at webfaction.
 
 DEBUG = True
 TEMPLATE_FOLDER = 'templates'
@@ -19,13 +20,14 @@ stache = pystache.Renderer(
 
 class EditorApp(object):
     @cherrypy.expose()
-    def index(self, headline=DEFAULTS['headline'], subtitle=DEFAULTS['subtitle'], image=None):
+    def index(self, headline=DEFAULTS['headline'], subtitle=DEFAULTS['subtitle'], imgsrc=None, image=None):
         conf = cherrypy.request.app.config['editor']
         urlbase = conf['urlbase'] or cherrypy.request.base
         scriptname = urlbase+cherrypy.request.script_name
-        imgsrc = '{0}/data/images/{1}'.format(scriptname,DEFAULTS['imgfilename'])
+        if not imgsrc:
+            imgsrc = '{0}/data/images/{1}'.format(scriptname,DEFAULTS['imgfilename'])
         if cherrypy.request.method == 'POST':
-            if image:
+            if image and image.filename:
                 imgfilepath = '{0}/static/data/images/{1}'.format(APPDIR,image.filename)
                 file(imgfilepath,'w').write(image.file.read())
                 imgsrc = '{0}/data/images/{1}'.format(scriptname,image.filename)
