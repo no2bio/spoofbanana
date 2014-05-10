@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>עורך ראשי</title>
-    <link href="bootstrap.rtl.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <title>{{title}}</title>
+    <link href="assets/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
   </head>
   <body>
     <div class="container" dir=rtl>
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="text-center">{{title}}</h1>
+        </div>
+      </div>
       <div class="row">
         <div class="col-sm-8">
           <form method="POST" action="." class="form-horizontal" enctype="multipart/form-data">
@@ -30,18 +35,24 @@
             </div>
             <div class="form-group">
               <label for="image" class="col-sm-2 control-label">תמונה</label>
-              <div class="col-sm-9">
+              <div class="col-sm-8">
                 <input type="file" class="form-control-static" id="image" name="image">
               </div>
-              <div class="col-sm-1">
-                <input type="submit" class="btn btn-primary" value="שלח">
+              <div class="col-sm-2">
+                <input type="submit" class="btn btn-primary form-control" value="שלח">
               </div>
             </div>
           </form>
-          <div class="row">
-            <div class="col-sm-offset-2 col-sm-10">
-              <a class="btn btn-info" target="_blank" href="https://no2bio.github.io/spoofmonkey">אל המהדורה</a>
-            </div><!-- /.col-sm-10 -->
+          <div class="row well">
+            <div class="col-sm-2">
+              <a class="btn btn-info form-control" target="_blank" href="{{liveurl}}">אל המהדורה</a>
+            </div><!-- /.col-sm-2 -->
+            <div class="col-sm-2">
+              <a class="btn btn-default form-control" target="_blank" href="{{scriptname}}">כתבה חדשה</a>
+            </div><!-- /.col-sm-2 -->
+            <div class="col-sm-offset-6 col-sm-2">
+              <a class="btn btn-default form-control" target="_blank" href="data/main.json">כניסת שרות</a>
+            </div><!-- /.col-sm-2 -->
           </div><!-- /.row -->
         </div><!-- /.col-sm-8 -->
         <div class="col-sm-4">
@@ -49,7 +60,7 @@
         </div><!-- /.col-sm-4 -->
       </div><!-- /.row -->
     </div><!-- /.container -->
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="assets/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/app.js"></script>
   </body>
 </html>

@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+[global]
+server.socket_host: '127.0.0.1'
+server.socket_port: 9998
+# If app is mounted on [say] /editor via proxy:
+#tools.proxy.on: True
+#tools.proxy.local: ''
+#tools.proxy.base: 'https://swatwt.com/editor'
+#tools.proxy.debug: True
+
+[editor]
+#urlbase: 'https://my.example.com/my/editor'  # Publicly visible url.
+urlbase: ''  # Empty means "Not proxied. Figure out url from request".
+liveurl: 'https://no2bio.github.io/spoofmonkey'
+
+[/]
+tools.staticdir.root: "/PATH/HERE/static"
+
+[/favicon.ico]
+tools.staticfile.on: True
+tools.staticfile.filename: "/PATH/HERE/static/favicon.ico"
+
+[/assets]
+tools.staticdir.on: True
+tools.staticdir.dir: "assets"
+
+[/data]
+tools.staticdir.on: True
+tools.staticdir.dir: "data"
