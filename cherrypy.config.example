@@ -7,11 +7,11 @@ server.socket_port: 9998
 #tools.proxy.local: ''
 #tools.proxy.base: 'https://swatwt.com/editor'
 #tools.proxy.debug: True
+tools.trailing_slash.on: True
 
 [editor]
 #urlbase: 'https://my.example.com/my/editor'  # Publicly visible url.
 urlbase: ''  # Empty means "Not proxied. Figure out url from request".
-liveurl: 'https://no2bio.github.io/spoofmonkey'
 
 [/]
 tools.staticdir.root: "/PATH/HERE/static"
@@ -27,3 +27,7 @@ tools.staticdir.dir: "assets"
 [/data]
 tools.staticdir.on: True
 tools.staticdir.dir: "data"
+
+[/live/live_files]
+tools.staticdir.on: True
+tools.staticdir.dir: "live_files"

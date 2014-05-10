@@ -13,7 +13,7 @@ DEFAULTS = {
     'imgfilename': 'default.gif'
 }
 
-JSON_OUTPUT = '{0}/static/data/main.json'.format(APPDIR)
+ARTICLE_DATA_FILE = '{0}/static/data/main.json'.format(APPDIR)
 
 stache = pystache.Renderer(
     search_dirs=TEMPLATE_FOLDER,file_encoding='utf-8',string_encoding='utf-8',file_extension='html')
@@ -32,15 +32,18 @@ class EditorApp(object):
                 file(imgfilepath,'w').write(image.file.read())
                 imgsrc = '{0}/data/images/{1}'.format(scriptname,image.filename)
             params = {'headline': headline, 'subtitle': subtitle, 'imgsrc': imgsrc}
-            json.dump(params,open(JSON_OUTPUT,'w'),indent=4)
+            json.dump(params,open(ARTICLE_DATA_FILE,'w'),indent=4)
             return stache.render(stache.load_template('form'), params,
-                                 scriptname=scriptname, imgsrc=imgsrc, liveurl=conf['liveurl'],
+                                 scriptname=scriptname, imgsrc=imgsrc,
                                  title=u'הכתבה עודכנה')
         else:
             return stache.render(stache.load_template('form'),
                                  scriptname=scriptname, imgsrc=imgsrc,
-                                 headline=headline, subtitle=subtitle, liveurl=conf['liveurl'],
+                                 headline=headline, subtitle=subtitle,
                                  title=u'עורך ראשי')
+    @cherrypy.expose()
+    def live(self):
+        return stache.render(stache.load_template('live'), json.load(file(ARTICLE_DATA_FILE)))
 
 if __name__ == '__main__':
     cherrypy.config.update('{0}/cherrypy.config'.format(APPDIR))
