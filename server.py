@@ -43,6 +43,13 @@ class EditorApp(object):
                                  title=u'עורך ראשי')
     @cherrypy.expose()
     def live(self):
+        if cherrypy.request.method == 'OPTIONS':
+            cherrypy.response.headers.update({
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type',
+                'Access-Control-Allow-Methods': 'GET, OPTIONS',
+                'Access-Control-Allow-Headers': 'X-Requested-With'})
+            return ''  # Is this the "proper" thing to return?
         return stache.render(stache.load_template('live'), json.load(file(ARTICLE_DATA_FILE)))
 
 if __name__ == '__main__':
