@@ -2,9 +2,9 @@
 // Copyright 2006-2014 ClickTale Ltd., US Patent Pending
 // PID: 33153
 // WR destination: www02
-// WR version: 14.10
+// WR version: 14.12
 // Recording ratio: 0.02003599
-// Generated on: 5/1/2014 9:53:48 AM (UTC 5/1/2014 2:53:48 PM)
+// Generated on: 5/13/2014 9:52:17 AM (UTC 5/13/2014 2:52:17 PM)
 
 if (typeof(ClickTaleHooks) == 'undefined') {
     ClickTaleHooks = {
@@ -94,7 +94,7 @@ var ClickTaleOnReady = function()
 }; 
 document.write(unescape("%3Cdiv%20id%3D%22ClickTaleDiv%22%20style%3D%22display%3A%20none%3B%22%3E%3C/div%3E"));
 
-document.write(unescape("%3Cscript%20src='"+window.ClickTaleScriptSource+"tc/WRe10.js"+"'%20type='text/javascript'%3E%3C/script%3E"));
+document.write(unescape("%3Cscript%20src='"+window.ClickTaleScriptSource+"tc/WRe12.js"+"'%20type='text/javascript'%3E%3C/script%3E"));
 
 
 
