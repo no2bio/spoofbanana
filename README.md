@@ -31,4 +31,4 @@ Run `./makeconf` (and maybe edit `cherrypy.conf`)
    with *{{> scoop}}*
 1. Edit `templates/scoop.html` and search for `<!-- date gifs -->`.
    Gif filenames should be *d*, *m*, and *y* of edition's date. 
-1. If you're using git, do `git add templates` to add the new edition
+1. If you're using git, don't forget to `git add templates` before you commit.
